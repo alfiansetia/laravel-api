@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('pos_code');
             $table->unsignedBigInteger('kecamatan_id');
             $table->foreign('kecamatan_id')->references('id')->on('kecamatan')->cascadeOnUpdate()->cascadeOnDelete();
-            $table->timestamps();
+            // $table->timestamps();
         });
     }
 
