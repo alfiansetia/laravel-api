@@ -47,8 +47,8 @@ class ProvinsiResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('code')->label('Code')->sortable()->searchable(),
                 TextColumn::make('name')->label('Name')->sortable()->searchable(),
+                TextColumn::make('code')->label('Code')->sortable()->searchable(),
             ])
             ->filters([
                 //

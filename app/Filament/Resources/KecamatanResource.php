@@ -6,6 +6,9 @@ use App\Filament\Resources\KecamatanResource\Pages;
 use App\Filament\Resources\KecamatanResource\RelationManagers;
 use App\Models\Kecamatan;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -31,7 +34,24 @@ class KecamatanResource extends Resource
     {
         return $form
             ->schema([
-                //
+                TextInput::make('code')
+                    ->label('Code')
+                    ->required()
+                    ->maxLength(255),
+                TextInput::make('full_code')
+                    ->label('Full Code')
+                    ->required()
+                    ->maxLength(255),
+                Select::make('kabupaten_id')
+                    ->label('Kabupaten')
+                    ->relationship('kabupaten', 'name')
+                    ->searchable()
+                    ->preload()
+                    ->required(),
+                Textarea::make('name')
+                    ->label('Name')
+                    ->required()
+                    ->maxLength(255),
             ]);
     }
 
